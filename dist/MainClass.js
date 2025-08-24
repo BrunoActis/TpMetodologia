@@ -3,30 +3,28 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Pokemon = void 0;
 class Pokemon {
     constructor(_pokemon) {
-        this.name = _pokemon.name || 'unknown';
-        this.power = _pokemon.power || 1;
-        this.attack = _pokemon.attack || 1;
-        this.defense = _pokemon.defense || 1;
+        this.nombre = _pokemon.nombre || 'unknown';
+        this.poder = _pokemon.poder || 1;
+        this.ataque = _pokemon.ataque || 1;
+        this.defensa = _pokemon.defensa || 1;
     }
     toString() {
         return `
-        nombre:${this.name} 
-        power: ${this.power};
-        attack: ${this.attack};
-        defense: ${this.defense}`;
+        nombre:${this.nombre} 
+        power: ${this.poder};
+        attack: ${this.ataque};
+        defense: ${this.defensa};`;
     }
     calculateMultiplier() {
-        //Step 1 - Common
-        return (1 / 2) * this.power + 1;
+        return (1 / 2) * this.poder + 1;
     }
     showDamage(damage) {
-        // Step 3 - Common
-        console.log('Pokemon damage is:', damage);
+        console.log('El daño del pokemon es:', damage);
     }
     calculateDamage() {
-        const multipliers = this.calculateMultiplier(); //Step 1;
-        const damage = this.calculateImpact(multipliers); //Step 2;
-        this.showDamage(damage); //Step 3;
+        const multipliers = this.calculateMultiplier(); // PASO 1;
+        const damage = this.calculateImpact(multipliers); //PASO 2;
+        this.showDamage(damage); //PASO 3;
     }
 }
 exports.Pokemon = Pokemon;

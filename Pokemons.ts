@@ -2,30 +2,36 @@
 
 import { Pokemon, PokemonData } from "./MainClass";
 
+
+//Clase de Pokémon de tipo Pelea 
 export class FightingPokemon extends Pokemon {
   constructor(_pokemon: PokemonData) {
     super(_pokemon);
   }
   calculateImpact(multipliers: number): number {
-    return Math.floor((this.attack / this.defense) * multipliers) + 1;
+    return Math.floor((this.ataque / this.defensa) * multipliers) + 1;
   }
 }
 
+
+//Clase de Pokémon de tipo Veneno
 export class PoisonPokemon extends Pokemon {
   constructor(_pokemon: PokemonData) {
     super(_pokemon);
   }
   calculateImpact(multipliers: number): number {
-    return Math.floor((this.attack - this.defense) * multipliers) + 1;
+    return Math.floor((this.ataque - this.defensa) * multipliers) + 1;
   }
 }
 
+
+//Clase de Pokémon de tipo tierra 
 export class GroundPokemon extends Pokemon {
   constructor(_pokemon: PokemonData) {
     super(_pokemon);
   }
   calculateImpact(multipliers: number): number {
-    return Math.floor((this.attack + this.defense) * multipliers) + 1;
+    return Math.floor((this.ataque + this.defensa) * multipliers) + 1;
   }
 }
 

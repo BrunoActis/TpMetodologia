@@ -1,47 +1,51 @@
+
 export interface PokemonData {
-  name: string;
-  power: number;
-  attack: number;
-  defense: number;
+  nombre: string;
+  poder: number;
+  ataque: number;
+  defensa: number;
 }
 
 export abstract class Pokemon {
     
-    name: string;
-    power: number;
-    attack: number;
-    defense: number;
+    nombre: string;
+    poder: number;
+    ataque: number;
+    defensa: number;
 
   constructor(_pokemon: PokemonData) {
-    this.name = _pokemon.name || 'unknown';
-    this.power = _pokemon.power || 1;
-    this.attack = _pokemon.attack || 1;
-    this.defense = _pokemon.defense || 1;
+    this.nombre = _pokemon.nombre || 'unknown';
+    this.poder = _pokemon.poder || 1;
+    this.ataque = _pokemon.ataque || 1;
+    this.defensa = _pokemon.defensa || 1;
   }
-    toString() {
+    public toString() { 
         return `
-        nombre:${this.name} 
-        power: ${this.power};
-        attack: ${this.attack};
-        defense: ${this.defense}`;
+        nombre:${this.nombre} 
+        power: ${this.poder};
+        attack: ${this.ataque};
+        defense: ${this.defensa};`;
     }
 
-    private calculateMultiplier() {
-        //Step 1 - Common
-        return (1 / 2) * this.power + 1;
+    private calculateMultiplier() { //PASO 1 -  comun para todos los pokemones y no se puede sobreescribir
+        return (1 / 2) * this.poder + 1;
     }
 
-    private showDamage(damage:number) {
-        // Step 3 - Common
-        console.log('Pokemon damage is:', damage);
+    private showDamage(damage:number) {// PASO 3 - Comun para todos los pokemones
+        console.log('El daño del pokemon es:', damage);
     }
 
+    //Contrato o plantilla que deben seguir las clases hijas
+    //Todas las clases hijas que hereden de Pokemon están obligadas a implementar este método.
+    //La clase padre Pokemon no sabe cómo calcular el impacto, pero sí sabe que cada Pokémon debería
+    //tener un método llamado calculateImpact que reciba un número y devuelva otro número.
     protected abstract calculateImpact(multipliers: number): number;
 
+
     public calculateDamage() {
-        const multipliers = this.calculateMultiplier(); //Step 1;
-        const damage = this.calculateImpact(multipliers); //Step 2;
-        this.showDamage(damage); //Step 3;
+        const multipliers = this.calculateMultiplier(); // PASO 1;
+        const damage = this.calculateImpact(multipliers); //PASO 2;
+        this.showDamage(damage); //PASO 3;
     }
 }
 
