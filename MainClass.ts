@@ -27,6 +27,7 @@ export abstract class Pokemon {
         defense: ${this.defensa};`;
     }
 
+
     private calculateMultiplier() { //PASO 1 -  comun para todos los pokemones y no se puede sobreescribir
         return (1 / 2) * this.poder + 1;
     }
@@ -39,6 +40,7 @@ export abstract class Pokemon {
     //Todas las clases hijas que hereden de Pokemon están obligadas a implementar este método.
     //La clase padre Pokemon no sabe cómo calcular el impacto, pero sí sabe que cada Pokémon debería
     //tener un método llamado calculateImpact que reciba un número y devuelva otro número.
+    
     protected abstract calculateImpact(multipliers: number): number;
 
 

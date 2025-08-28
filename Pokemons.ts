@@ -5,6 +5,7 @@ import { Pokemon, PokemonData } from "./MainClass";
 
 //Clase de Pokémon de tipo Pelea 
 export class FightingPokemon extends Pokemon {
+//el constructor de la subclase no hace nada extra por sí mismo (solo recibe el objeto y lo reenvía al padre con super).
   constructor(_pokemon: PokemonData) {
     super(_pokemon);
   }
